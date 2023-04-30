@@ -1,8 +1,10 @@
 // ==UserScript==
 // @name         Dark Theme for 6.101
-// @version      1
+// @version      1.0.0
 // @description  Applies a dark theme to 6.101 Website
 // @match        https://py.mit.edu/*
+// @updateURL    https://github.com/nch0w/catsoop-dark-theme/raw/main/theme.user.js
+// @downloadURL  https://github.com/nch0w/catsoop-dark-theme/raw/main/theme.user.js
 // @grant        none
 // @author       Neil Chowdhury
 // ==/UserScript==
