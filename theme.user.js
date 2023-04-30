@@ -47,22 +47,144 @@
         "--cs-base-bg-color",
         "#33ccff"
       );
+      // header (old: dark blue 000080)
       GM_addStyle(`
-          body {
-              background-color: #111 !important;
-              color: #eee !important;
-          }
+        #cs_header {
+          background-color: #383a59;  
+        }
       `);
       GM_addStyle(`
+        body {
+          background-color: #0d1117;
+          color: #E6EDF3;
+        }
+      `);
+
+      // old color: #161b22, dracula color: #282a36
+      GM_addStyle(`
         code {
-            background-color: #333 !important;
+          background-color: #161b22;
         }
       `);
       // pre has background #333
       GM_addStyle(`
         pre {
-            background-color: #333 !important;
-            }
+          background-color: #161b22;
+          }
+      `);
+      GM_addStyle(`
+        .question {
+          background-color: #161b22;
+        }
+      `);
+      GM_addStyle(`
+        input[type="text"] {
+          background-color: #161b22;
+          color: #fff;
+          border: 2px solid #212a34;
+        }
+      `);
+      GM_addStyle(`
+        .cs_footer {
+          background-color: #25292e;
+        }
+      `);
+      // select
+      GM_addStyle(`
+        select {
+          background-color: #161b22;
+          color: #fff;
+          border: 2px solid #212a34;
+        }
+      `);
+
+      // highlight.js theme
+      GM_addStyle(`
+        .hljs-comment,
+        .hljs-quote {
+          color: #dd0000;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-keyword,
+        .hljs-selector-tag,
+        .hljs-literal {
+          color: #ff7700;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-name {
+          color: #008;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-variable,
+        .hljs-template-variable {
+          color: #660;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-string {
+          color: #00aa00;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-regexp,
+        .hljs-link {
+          color: #080;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-title,
+        .hljs-tag,
+        .hljs-symbol,
+        .hljs-bullet,
+        .hljs-meta {
+          color: #1c00cf;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-built_in,
+        .hljs-builtin-name {
+          color: #900090;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-class .hljs-title {
+          color: #0000ff;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-formula {
+          background-color: #eee;
+          font-style: italic;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-addition {
+          background-color: #baeeba;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-deletion {
+          background-color: #ffc8bd;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-selector-id,
+        .hljs-selector-class {
+          color: #9b703f;
+        }
+      `);
+      GM_addStyle(`
+        td.hljs-ln-numbers {
+          border-right: 2px solid #aaa;
+          text-align: right;
+          padding-left: 5px !important;
+          padding-right: 5px !important;
+          background-color: #e0e0e0;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
+        }
       `);
     } else {
       document.documentElement.style.setProperty(
@@ -70,20 +192,133 @@
         "#000080"
       );
       GM_addStyle(`
-          body {
-              background-color: #fff !important;
-              color: #000 !important;
-          }
+        body {
+          background-color: #fff;
+          color: #000;
+        }
       `);
       GM_addStyle(`
-          code {
-              background-color: #f0f0f0 !important;
-          }
+        code {
+          background-color: #f0f0f0;
+        }
       `);
       GM_addStyle(`
         pre {
-            background-color: #f0f0f0 !important;
-            }
+          background-color: #f0f0f0;
+        }
+      `);
+      GM_addStyle(`
+        .question {
+          background-color: #ffffff;
+        }
+      `);
+      GM_addStyle(`
+        input[type="text"] {
+          background-color: #fff;
+          color: #000;
+          border: default;
+        }
+      `);
+      GM_addStyle(`
+        .cs_footer {
+          background-color: #eee;
+        }
+      `);
+      GM_addStyle(`
+        select {
+          background-color: #fff;
+          color: #000;
+          border: default;
+        }
+      `);
+
+      // highlight.js theme
+      GM_addStyle(`
+        .hljs-comment,
+        .hljs-quote {
+          color: #dd0000;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-keyword,
+        .hljs-selector-tag,
+        .hljs-literal {
+          color: #ff7700;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-name {
+          color: #008;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-variable,
+        .hljs-template-variable {
+          color: #660;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-string {
+          color: #00aa00;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-regexp,
+        .hljs-link {
+          color: #080;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-title,
+        .hljs-tag,
+        .hljs-symbol,
+        .hljs-bullet,
+        .hljs-meta {
+          color: #1c00cf;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-built_in,
+        .hljs-builtin-name {
+          color: #900090;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-class .hljs-title {
+          color: #0000ff;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-formula {
+          background-color: #eee;
+          font-style: italic;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-addition {
+          background-color: #baeeba;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-deletion {
+          background-color: #ffc8bd;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-selector-id,
+        .hljs-selector-class {
+          color: #9b703f;
+        }
+      `);
+      GM_addStyle(`
+        td.hljs-ln-numbers {
+          border-right: 2px solid #aaa;
+          text-align: right;
+          padding-left: 5px !important;
+          padding-right: 5px !important;
+          background-color: #e0e0e0;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
+        }
       `);
     }
     darkThemeEnabled = !darkThemeEnabled;
