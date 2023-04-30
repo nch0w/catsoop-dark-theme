@@ -136,6 +136,13 @@
         }
       `);
       GM_addStyle(`
+        .hljs-class .hljs-title {
+          font-style: italic;
+          color: #50fa7b;
+          text-decoration: none;
+        }
+      `);
+      GM_addStyle(`
         .hljs-string,
         .hljs-meta,
         .hljs-name,
@@ -327,6 +334,7 @@
       GM_addStyle(`
         .hljs-class .hljs-title {
           color: #0000ff;
+          font-style: inherit;
           text-decoration: none;
         }
       `);
