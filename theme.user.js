@@ -39,7 +39,10 @@
   toggleButton.textContent = "Dark";
   // toggleButton.innerHTML = `<i class="fas fa-moon"></i>`;
 
-  document.querySelector(".nav-container").appendChild(toggleButton);
+  const navContainer = document.querySelector(".nav-container");
+  const secondToLastChild =
+    navContainer.childNodes[navContainer.childNodes.length - 3]; // Get the second to last child element
+  navContainer.insertBefore(toggleButton, secondToLastChild); // Insert toggleButton before the second to last child element
 
   function toggleDarkTheme(evt) {
     if (evt) evt.preventDefault();
@@ -198,6 +201,15 @@
           padding-right: 5px !important;
           background-color: #101010;
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
+        }
+      `);
+
+      // textareas
+      GM_addStyle(`
+        textarea {
+          background-color: #282a36;
+          color: #E6EDF3;
+          border: 2px solid #212a34;
         }
       `);
     } else {
@@ -392,6 +404,15 @@
           background-color: default;
         }
       `);
+
+      // textareas
+      GM_addStyle(`
+      textarea {
+        background-color: #ffffff;
+        color: #000000;
+        border: 2px solid #ccc; /* Border style */
+      }
+    `);
     }
     darkThemeEnabled = !darkThemeEnabled;
   }
