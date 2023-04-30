@@ -24,13 +24,15 @@
     sheet.insertRule(css, (sheet.rules || sheet.cssRules || []).length);
   }
 
-  // const toggleButton = document.createElement("button");
-  // toggleButton.textContent = "Toggle Dark Theme";
-  // toggleButton.style =
-  //   "position: fixed; top: 10px; right: 10px; z-index: 1000;";
-  // document.body.appendChild(toggleButton);
-
-  let darkThemeEnabled = false;
+  // set a persistent variable to keep track of whether dark theme is enabled
+  let darkThemeEnabled = localStorage.getItem("catsoop_darkThemeEnabled");
+  if (darkThemeEnabled === "true") {
+    darkThemeEnabled = true;
+  } else {
+    darkThemeEnabled = false;
+  }
+  console.log(darkThemeEnabled);
+  // localStorage.setItem("catsoop_darkThemeEnabled", darkThemeEnabled);
   // "https://raw.githubusercontent.com/dracula/highlightjs/master/dracula.css";
 
   const toggleButton = document.createElement("a");
@@ -415,8 +417,12 @@
     `);
     }
     darkThemeEnabled = !darkThemeEnabled;
+    localStorage.setItem("catsoop_darkThemeEnabled", darkThemeEnabled);
   }
 
   toggleButton.addEventListener("click", toggleDarkTheme);
-  toggleDarkTheme();
+  if (darkThemeEnabled) {
+    darkThemeEnabled = false;
+    toggleDarkTheme();
+  }
 })();
