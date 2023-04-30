@@ -63,6 +63,11 @@
         }
       `);
       GM_addStyle(`
+        #cs_header img {
+          background-color: rgba(0, 0, 0, 0);  
+        }
+      `);
+      GM_addStyle(`
         body {
           background-color: #0d1117;
           color: #E6EDF3;
