@@ -37,11 +37,13 @@
   toggleButton.className = "cs_top_menu_item";
   toggleButton.href = "#";
   toggleButton.textContent = "Dark";
+  // toggleButton.innerHTML = `<i class="fas fa-moon"></i>`;
 
   document.querySelector(".nav-container").appendChild(toggleButton);
 
   function toggleDarkTheme(evt) {
     if (evt) evt.preventDefault();
+    toggleButton.textContent = "Light";
     if (!darkThemeEnabled) {
       document.documentElement.style.setProperty(
         "--cs-base-bg-color",
@@ -123,7 +125,7 @@
         .hljs-attr,
         .hljs-meta-keyword {
           font-style: italic;
-          color: #50fa7b !important;
+          color: #50fa7b;
         }
       `);
       GM_addStyle(`
@@ -153,54 +155,62 @@
           color: #bd93f9;
         }
       `);
-      // GM_addStyle(`
-      //   .hljs-built_in,
-      //   .hljs-builtin-name {
-      //     color: #900090;
-      //   }
-      // `);
-      // GM_addStyle(`
-      //   .hljs-class .hljs-title {
-      //     color: #0000ff;
-      //   }
-      // `);
-      // GM_addStyle(`
-      //   .hljs-formula {
-      //     background-color: #eee;
-      //     font-style: italic;
-      //   }
-      // `);
-      // GM_addStyle(`
-      //   .hljs-addition {
-      //     background-color: #baeeba;
-      //   }
-      // `);
-      // GM_addStyle(`
-      //   .hljs-deletion {
-      //     background-color: #ffc8bd;
-      //   }
-      // `);
-      // GM_addStyle(`
-      //   .hljs-selector-id,
-      //   .hljs-selector-class {
-      //     color: #9b703f;
-      //   }
-      // `);
-      // GM_addStyle(`
-      //   td.hljs-ln-numbers {
-      //     border-right: 2px solid #aaa;
-      //     text-align: right;
-      //     padding-left: 5px !important;
-      //     padding-right: 5px !important;
-      //     background-color: #e0e0e0;
-      //     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
-      //   }
-      // `);
+
+      // buttons
+      GM_addStyle(`
+        .btn {
+          background-color: #383a59;
+          color: white;
+        }
+      `);
+      GM_addStyle(`
+        button {
+          background-color: #383a59;
+          color: white;
+          border: 2px solid #212a34;
+        }
+      `);
+
+      GM_addStyle(`
+        .btn:hover,.btn:active, .btn:active:hover {
+          background-color: #a1a3b5;
+        }
+      `);
+
+      // make images have white backgrounds (for dark mode)
+      GM_addStyle(`
+        img {
+          background-color: #fff;
+        }
+      `);
+
+      GM_addStyle(`
+        .response {
+          background-color: #282a36;
+        }
+      `);
+
+      GM_addStyle(`
+        td.hljs-ln-numbers {
+          border-right: 2px solid #aaa;
+          text-align: right;
+          padding-left: 5px !important;
+          padding-right: 5px !important;
+          background-color: #101010;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
+        }
+      `);
     } else {
+      toggleButton.textContent = "Dark";
       document.documentElement.style.setProperty(
         "--cs-base-bg-color",
         "#000080"
       );
+      GM_addStyle(`
+        #cs_header {
+          background-color: #0350ba;  
+        }
+      `);
       GM_addStyle(`
         body {
           background-color: #fff;
@@ -238,7 +248,12 @@
         select {
           background-color: #fff;
           color: #000;
-          border: default;
+          border: 1px solid black;
+        }
+      `);
+      GM_addStyle(`
+        .response {
+          background-color: #fff;
         }
       `);
 
@@ -296,6 +311,19 @@
       GM_addStyle(`
         .hljs-class .hljs-title {
           color: #0000ff;
+          text-decoration: none;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-title {
+          color: #0000ff;
+          font-style: inherit;
+        }
+      `);
+      GM_addStyle(`
+        .hljs-literal,
+        .hljs-number {
+          color: #000000;
         }
       `);
       GM_addStyle(`
@@ -328,6 +356,40 @@
           padding-right: 5px !important;
           background-color: #e0e0e0;
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
+        }
+      `);
+      GM_addStyle(`
+        .hljs,
+        .hljs-subst {
+          color: #000000;
+        }
+      `);
+
+      GM_addStyle(`
+        .btn {
+          color: var(--cs-base-font-color);
+          background-color: var(--cs-base-bg-color);
+        }
+      `);
+
+      GM_addStyle(`
+        button {
+          background-color: buttonface; /* Background color */
+          border: 2px outset buttonface; /* Border style */
+          color: buttontext; /* Text color */
+        }
+      `);
+
+      GM_addStyle(`
+        .btn:hover,.btn:active, .btn:active:hover{
+          color: var(--cs-light-font-color);
+          background-color: var(--cs-light-bg-color);
+        }
+      `);
+
+      GM_addStyle(`
+        img {
+          background-color: default;
         }
       `);
     }
